@@ -30,13 +30,36 @@
             </intent-filter>
         </activity>
         <activity android:name=".NumbersActivity"
-                  android:label="@string/category_numbers"/>
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/category_numbers">
+                  <meta-data
+                      android:name="android.support.PARENT_ACTIVITY"
+                      android:value="com.example.android.miwok.MainActivity"/>
+        </activity>
+
         <activity android:name=".FamilyActivity"
-                  android:label="@string/category_family"/>
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/category_family">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.android.miwok.MainActivity"/>
+            </activity>
+
         <activity android:name=".ColorsActivity"
-                  android:label="@string/category_colors"/>
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/category_colors">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.android.miwok.MainActivity"/>
+            </activity>
+
         <activity android:name=".PhrasesActivity"
-                  android:label="@string/category_phrases"></activity>
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/category_phrases">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.miwok.MainActivity"/>
+    </activity>
     </application>
 
-</manifest>
+    </manifest>
