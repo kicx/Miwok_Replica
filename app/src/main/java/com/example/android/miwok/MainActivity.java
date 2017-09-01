@@ -15,16 +15,10 @@
  */
 package com.example.android.miwok;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
-
-import static com.example.android.miwok.R.id.colors;
-import static com.example.android.miwok.R.id.family;
-import static com.example.android.miwok.R.id.numbers;
-import static com.example.android.miwok.R.id.phrases;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,51 +26,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        TextView activityNumbers = (TextView) findViewById(numbers);
-        TextView activityFamily = (TextView) findViewById(family);
-        TextView activityColors = (TextView) findViewById(colors);
-        TextView activityPhrases = (TextView) findViewById(phrases);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        MiwokFragmentPageAdapter adapter = new MiwokFragmentPageAdapter(getSupportFragmentManager());
 
-        activityNumbers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(numbersIntent);
-            }
-        });
+        viewPager.setAdapter(adapter);
 
-        activityFamily.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(familyIntent);
-            }
-        });
-
-        activityColors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(colorsIntent);
-            }
-        });
-
-        activityPhrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-                startActivity(phrasesIntent);
-            }
-        });
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
-
-
-
-
-
 }
